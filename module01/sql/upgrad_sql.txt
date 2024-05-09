@@ -1,0 +1,198 @@
+Entity Type/Entity: It is nothing but a table in the schema. For example, 'orders' and 'payments' are both entity types.
+Attribute: It is a column in an entity type. For example, 'orderNumber' is an attribute in the 'orders' entity type.
+Relationship Types: They are the lines between tables, which define the relationships among them. These can be of various types based on their cardinalities, i.e., one-to-one, one-to-many, many-to-many, etc.
+
+
+What a data warehouse is.
+The differences between a data warehouse and a transactional database.
+OLAP systems are Subject-oriented, Integrated, Non-volatile and Time-variant.
+A data warehouse provides an integrated view of the entire organisation, and the data is organised for carrying out analysis efficiently.
+Facts and dimensions, and how to arrange them in order to design a data warehouse.
+Dimension tables act as metadata, that is, data about data, and enhance the facts table to enhance the insights from the data.
+What a star schema is.
+The advantages of having a star schema in a database.
+The SETL process: Select, Extract, Transform and Load.
+The different types of constraints: Entity, Referential and Semantic.
+ERDs and their constituents.
+
+
+#################
+
+The commands available in SQL can be broadly categorised as follows:
+
+Data Definition Language (DDL)
+
+Data Manipulation Language (DML)
+
+DDL, as the name suggests, is used to create a new schema as well as to modify an existing schema. The typical commands available in DDL are CREATE, ALTER and DROP. Now, as a data analyst, the majority of your work will focus on insight generation, and you will be working with DML commands, specifically, the SELECT command
+
+
+DDL statements are used to create, modify and drop tables.
+
+DML Statements
+DML statements are used for:
+
+
+deleting data in a database.
+
+✓ Correct
+Feedback:
+DELETE is the DML statement used for this operation.
+
+
+inserting data into a database.
+
+✓ Correct
+Feedback:
+INSERT is the DML statement used for this operation.
+
+
+add another column using the alter table and add commands
+update the value of a column using update and set commands
+delete a column using alter table and drop column commands
+
+alter table Petrol_prices
+
+change Petrol_Quantity Petrol_Price decimal(4,2);
+
+
+DML statements in MySQL.
+
+
+
+The DDL statements are:
+
+CREATE
+ALTER
+DROP
+The DML statements are:
+
+INSERT
+UPDATE
+DELETE
+SELECT
+While Data Definition Language statements are used to change the structure of the database, Data Manipulation Language statements are used to change the data itself inside the database.
+
+
+
+Now that you are ready to use MySQL for its primary intended purpose, that is, data analysis, it's time to write useful queries to derive actionable insights from the sea of data around you.
+
+
+##########
+select count(*)
+
+from cust_dimen
+
+where State = 'Maharashtra' and Customer_Segment = 'Corporate';
+
+
+select City
+
+from cust_dimen
+
+where City like 'K%';
+
+
+
+Note that using '%K' instead would return cities having names ending with 'K'.
+
+
+
+Both % and _ (underscore)
+
+✓ Correct
+Feedback:
+Correct. % is a multi-character wildcard, whereas _ is a single-character wildcard. For example, using "_r%" will return words with the second character as r, followed by zero or more characters at the end.
+
+With SQL, how do you select all the records from a table named ‘employees’ where the ‘LastName’ is alphabetically between (and including) ‘Joshi’ and ‘Sharma’?
+
+
+
+select * from employees where LastName between ‘Joshi’ and ‘Sharma’;
+
+✓ Correct
+Feedback:
+This query returns employees having Joshi and Sharma as surnames along with all surnames in between alphabetically.
+
+
+The string values are converted to integer values before evaluation, as the operator used is ‘>’. The ASCII value of ‘a’ is 65. Therefore, the statement transforms to ‘select 54 > 65’, which is false. False is converted to 0 in the numeric format.
+
+use upgrad;
+SELECT COUNT(*) AS totalEmployees FROM employees;
+# Write your code below
+
+Suggested Answer
+select student_id
+
+from students
+
+order by state, marks;
+
+
+use upgrad;
+SELECT firstName FROM employees ORDER BY firstName ASC;
+# Write your code below
+
+The 'having' clause is typically used when you have to apply a filter condition on an 'aggregated value'. This is because the 'where' clause is applied before aggregation takes place, and thus, it is not useful when you want to apply a filter on an aggregated value.
+
+In other words, the 'having' clause is equivalent to a 'where' clause after the 'group by' clause has been executed but before the 'select' clause is executed.
+
+Here's the order of keywords in a SQL query:
+
+SELECT: This clause specifies the columns you want to retrieve from the database table.
+FROM: This clause specifies the table(s) from which you want to retrieve data.
+WHERE: This clause filters the data based on specific conditions. Rows that don't meet the WHERE clause criteria are excluded from the results.
+GROUP BY: This clause groups rows based on shared values in one or more columns. It's used in conjunction with aggregate functions (COUNT, SUM, AVG, etc.)
+HAVING: This clause filters groups of data created by the GROUP BY clause. It's similar to WHERE but operates on aggregated data.
+ORDER BY: This clause sorts the final results based on one or more columns in ascending (ASC) or descending (DESC) order.
+LIMIT: This clause limits the number of rows returned by the query.
+
+abs() - Returns the absolute value of a number
+ceil() - Returns the smallest integer value greater than or equal to the input number
+floor() - Returns the largest integer value not greater than the argument
+round() - Rounds a number to a specified number of decimal places
+rand() - Returns a random floating-point value between 0 and 1
+pow(a, b) - Returns the value a^b
+
+
+Given the above math functions used in MySQL, what will this query return?
+select ceil(rand() * 6);
+A random integer from 1 to 6.
+
+✓ Correct
+Feedback:
+Correct. The query can be used to emulate the results that we get when we throw a dice.
+
+
+Query: select pow(79, 16) % 17;
+Remainder: 6
+
+Write a query to retrieve the full names of all the employees along with their employee numbers.
+
+
+
+use upgrad;
+SELECT employeeNumber, CONCAT(firstName, ' ', lastName) AS fullName
+FROM employees;
+# Write your code below
+
+Write a query to retrieve the employee numbers and first names of all employees having the substring on in their first names.
+
+
+
+Sample Output
+
+employeeNumber firstName
+
+1143 Anthony
+
+
+
+These output will be in the form of table.
+
+Execution Time Limit
+
+use upgrad;
+SELECT employeeNumber, firstName
+FROM employees WHERE LOWER(firstName) LIKE '%on%';
+# Write your code below
