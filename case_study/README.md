@@ -14,10 +14,11 @@
 <!-- You can include any other section that is pertinent to your problem -->
 
 ## Problem Statement
-- Provide general information about your project here.
-- What is the background of your project?
-- What is the business probem that your project is trying to solve?
-- What is the dataset that is being used?
+As an online lending marketplace, company aims to :
+- Identify 'risky' loan applicants who are likely to default and cause credit loss. 
+- Analyzing the driving factors behind loan defaults using exploratory data analysis (EDA).
+- Understanding the key indicators of loan defaults, to minimize financial loss and for better risk assessment.
+
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 ## Objectives
@@ -26,13 +27,42 @@
 ## DataSet Analysis
 
 ## Approach
+- Understanding and Data cleaning
+  -  Understanding what each columns represents
+  - Dropping columns which cannot be used, having null values, no variation etc.
+  - imputing missing values, removing duplicates, and correcting inconsistencies.
+- Analysing the data
+  - Univariate Analysis
+  - Bivariate Analysis
+  - Multivariate and segmented Analysis
+- Conclusion
+  - Drawing observations and recommendations based on the data  
 
 
-## Conclusions
-- Conclusion 1 from the analysis
-- Conclusion 2 from the analysis
-- Conclusion 3 from the analysis
-- Conclusion 4 from the analysis
+
+##  Recommendation and Conclusions
+- The following segments seem to have strong influence on defaults :
+  - purpose (small business is more likely to default)
+  - grade (lower grades are more likely to default)
+  - addr_state (some states are more likely to have high defaults)
+  - home_ownership ()
+  - delinq_2yrs
+  - inq_last_6_months (probability of default increases with number of inq)
+  - term
+  - pub_rec
+  - pub_rec_bankrupcis
+  - dti
+  - loan_amnt
+  - int_rates
+- The following segments seem to have Low/No influence on loan defaults :
+  - verfication_status
+  - emp_length
+  - home_ownership
+  - installments
+  - issue_d
+  - total_acc
+  - total_rec
+
 
 <!-- You don't have to answer all the questions - just the ones relevant to your project. -->
 
@@ -58,7 +88,7 @@ Give credit here.
 - Anuraj Kumar
 - 
 ## Contact
-Created by @sunnyku - feel free to contact me
+Created by [@sunnyku] - feel free to contact me
 
 
 <!-- Optional -->
