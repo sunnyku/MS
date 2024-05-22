@@ -1,5 +1,7 @@
 # Lending Club  Case Study
-> Outline a brief description of your project.
+> As an online lending marketplace, the company's goal is to:
+> Identify borrowers who may be more likely to default on loans, in order to minimize financial losses and ensure responsible lending practices. Exploratory data analysis (EDA) can be used to analyze the driving factors behind loan defaults.
+> Understand the key indicators of loan defaults. This understanding can be used to develop a more accurate risk assessment model. It is important to note that there is no single factor that can guarantee a loan repayment. However, by using data to identify patterns and trends, the company can make more informed lending decisions.
 
 
 ## Table of Contents
@@ -86,7 +88,7 @@ Give credit here.
 ## Team
 - Sunny Kumar
 - Anuraj Kumar
-- 
+
 ## Contact
 Created by [@sunnyku] - feel free to contact me
 
