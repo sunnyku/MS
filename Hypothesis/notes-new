@@ -1,0 +1,113 @@
+nferential statistics is used to find some population parameter (mostly population mean) when you have no initial number to start with. So, you start with the sampling activity and find out the sample mean. Then, you estimate the population mean from the sample mean using the confidence interval.
+
+
+
+Hypothesis testing is used to confirm your conclusion (or hypothesis) about the population parameter (which you know from EDA or your intuition). Through hypothesis testing, you can determine whether there is enough evidence to conclude if the hypothesis about the population parameter is true or not.
+
+
+Hypothesis Testing starts with the formulation of these two hypotheses:
+
+    Null hypothesis (H₀): The status quo
+
+    Alternate hypothesis (H₁): The challenge to the status quo
+
+    But in some instances, if your claim statement has words like “at least”, “at most”, “less than”, or “greater than”, you cannot formulate the null hypothesis just from the claim statement (because it’s not necessary that the claim is always about the status quo).
+
+
+
+You can use the following rule to formulate the null and alternate hypothesis:
+
+
+
+The null hypothesis always has the following signs:  =  OR   ≤   OR    ≥
+
+
+
+The alternate hypothesis always has the following signs:  ≠   OR  >   OR    <
+
+
+The null hypothesis is always formulated by either = or ≤ or ≥. Here, Apurva’s claim is that her score is equal to 70, so that would become the null hypothesis. And alternate hypothesis would be that her score is not equal to 70.
+
+
+If your sample mean lies in the acceptance region, you fail to reject the null hypothesis because it is not beyond the critical point and you can consider that sample mean is equal to the population mean statistically.
+
+The formulation of the null and alternate hypotheses determines the type of the test and the position of the critical regions in the normal distribution.
+
+
+
+You can tell the type of the test and the position of the critical region on the basis of the ‘sign’ in the alternate hypothesis.
+
+
+
+       ≠ in H₁    →   Two-tailed test        →     Rejection region on both sides of distribution
+
+       < in H₁    →   Lower-tailed test     →     Rejection region on left side of distribution
+
+       > in H₁    →   Upper-tailed test     →     Rejection region on right side of distribution
+
+
+       Feedback:
+The alternate hypothesis is the opposite of the null hypothesis. Since the null hypothesis is that the average lead content is less than or equal to 2.5 ppm, the alternate hypothesis would be that the average lead content is more than 2.5 ppm. So the critical region would lie on right side of distribution.
+
+
+The standard deviation of a distribution of sample means is obtained by dividing the population standard deviation by the square root of the sample size. So, 90/ ​√36​ = 90/6 = 15.
+
+
+Here, value of α is 0.03 (of 3%), so the area of the rejection region would be 0.03 and the area of the acceptance region would be 0.97. In addition, since this is a two-tailed test, the area of the critical region on the right-hand side would be half of 0.03, i.e. 0.015.
+Feedback:
+For 3% significance level, you would have two critical regions on both sides with a total area of 0.03. So, the area of the critical region on the right side would be 0.015, which means that the area till UCV (cumulative probability of that point) would be 1 - 0.015 = 0.985. So, you need to find the z-value of 0.985. The z-score for 0.9850 in the z-table is 2.17 (2.1 on the horizontal axis and 0.07 on the vertical axis).
+
+Feedback:
+
+The critical values can be calculated from μ ± Zc x (σ/​√N​) as 36 ± 2.17(4/​√49​) = 36 ± 1.24 which comes out to be 37.24 and 34.76.
+Feedback:
+
+The UCV and LCV values for this test are 37.24 and 34.76. The sample mean in this case is 34.5 months, which is less than LCV. So, this implies that the sample mean lies in the critical region and you can reject the null hypothesis.
+
+Feedback:
+In this problem, the area of the critical region beyond the only critical point, which is on the right side, is 0.05 (in the last problem, it was 0.025). So, the cumulative probability of the critical point (the total area till that point) would be 0.950.
+
+Feedback:
+The critical value can be calculated from μ + Zc x (σ/√N). 350 + 1.645(90/√36) = 374.67. Since 370.16 (¯x) is less than 374.67, ¯x lies in the acceptance region and you fail to reject the null hypothesis.
+
+
+
+Feedback:
+The alternate hypothesis is the opposite of the null hypothesis. Since the null hypothesis is that the average lead content is less than or equal to 2.5 ppm, the alternate hypothesis would be that the average lead content is more than 2.5 ppm. So the critical region would lie on right side of distribution.
+
+
+✓ Correct
+Feedback:
+For a 2% significance level, you would have two critical regions on both sides with a total area of 0.02 (because you want to test if the average weight of the chocolate is greater than or less than 60 g). So, the area of the critical region on the right side would be 0.01, which means that the area till UCV (cumulative probability of that point) would be 1 - 0.01 = 0.99. So, you need to find the z-value of 0.99. The z-score for 0.9901 in the z-table is 2.33 (2.3 on the horizontal axis and 0.03 on the vertical axis). So, you can take the z-score for either 0.9901 for 0.99.
+
+
+Feedback:
+
+You can calculate the z-score for sample mean 34.5 months using the formula: (​​¯x​ - μ) / (σ/​√n) . This The value in the z-table corresponding to -2.6 on the vertical axis and 0.02 on the horizontal axis is 0.0044. Since the sample mean is on the left side of the distribution and this is a two-tailed test, the p-value would be 2 * 0.0044 = 0.0088.
+
+
+gives you (34.5 - 36) / (4/√49) = (-1.5) * 7/4 = -2.62. Notice that, since the sample mean lies on the left side of the hypothesised mean of 36 months, the z-score comes out to be negative.
+
+
+A type I-error represented by α occurs when you reject a true null hypothesis.
+
+A type-II error represented by β occurs when you fail to reject a false null hypothesis.
+
+
+
+The power of any hypothesis test is defined by 1 - β. Power of the test or calculation of β is beyond the scope of this course. You can study more about power of a test from this link.
+
+
+
+If go back to the analogy of the criminal trial example, you would find that the probability of making a type-I error would be more if the jury convicts the accused even on less substantial evidence. The probability of a type-I error can be reduced if the jury adopts more stringent criteria to convict an accused party.
+
+
+
+However, reducing the probability of a type-I error may increase the probability of making a type-II error. If the jury becomes very liberal in acquitting the people on trial, there would be a higher probability that an actual criminal is able to walk free.
+
+
+
+
+Feedback:
+The alternate hypothesis is the opposite of the null hypothesis. Since the null hypothesis is that the average lead content is less than or equal to 2.5 ppm, the alternate hypothesis would be that the average lead content is more than 2.5 ppm. So the critical region would lie on right side of distribution.
+

@@ -1,0 +1,80 @@
+A t-distribution is also referred to as Student’s T distribution. A t-distribution is similar to the normal distribution in many cases; for example, it is symmetrical about its central tendency. However, it is shorter than the normal distribution and has a flatter tail, which would eventually mean that it has a larger standard deviation.
+
+The most important use of the t-distribution is that you can approximate the value of the standard deviation of the population (σ) from the sample standard deviation (s). However, as the sample size increases more than 30, the t-value tends to be equal to the z-value. Thus, if you want to summarise the decision-making in a flowchart, this is what you would get.
+
+
+You can easily do hypothesis testing in Python by using stats from Scipy library.
+1-sample t-test: testing the value of a population mean
+
+To test, if the population mean of data is likely to be equal to a given value
+
+scipy.stats.ttest_1samp()
+
+stats.ttest_1samp(data['column'], x)
+#where x is the mean value you want to test
+
+
+2-sample t-test: testing for difference across populations
+
+scipy.stats.ttest_ind()
+
+stats.ttest_ind(column_1,column_2)
+
+
+Paired tests: repeated measurements on the same individuals
+
+stats.ttest_rel()
+
+stats.ttest_rel(column_1,column_2)
+
+
+
+
+To summarise, hypothesis testing still holds importance in the following two types of industries, even if all the data is available digitally:
+
+    Manufacturing processes in the food, pharmaceuticals, chemicals industries, where it is not practically possible to gather information on the entire population.
+
+    E-commerce, advertising and digital marketing companies, where the amount of data collected from various samples is so huge that analysing all data becomes very difficult without having big data systems in place.
+
+    So what did you learn in this session?
+
+
+
+    T-distribution:
+        A T-distribution is used whenever the standard deviation of the population is unknown
+        The degrees of freedom of a T-distribution is equal to sample size n - 1
+        For sample size ≥ 30, the T-distribution becomes the same as the normal distribution
+        The output values and results of both t-test and z-test are same for sample size ≥ 30
+
+    Two-sample mean test - paired:
+        It is used when your sample observations are from the same individual or object
+        During this test, you are testing the same subject twice
+
+    Two-sample mean test - unpaired:
+        During this test, you are not testing the same subject twice
+        It is used when your sample observations are independent
+
+
+
+    Two-sample proportion test:
+
+        It is used when your sample observations are categorical, with two categories
+
+        It could be True/False, 1/0, Yes/No, Male/Female, Success/Failure, etc.
+
+
+    A/B Testing:
+
+        A/B testing is a direct industry application of the two-sample proportion test
+
+        It is a widely used process in digital companies in the ecommerce, manufacturing and advertising domains
+
+        It provides a way to test two different versions of the same element and see which one performs better
+
+
+
+You can download the lecture notes for the module from below. The lecture notes include a summary of the entire module.
+
+
+
+Note : The number of stores (page number 6 or page which contains Figure 5) should be 36 instead of 25.

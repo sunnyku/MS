@@ -1,0 +1,272 @@
+The expected value should be interpreted as the average value you get after the experiment has been conducted an infinite number of times
+
+for a random variable X that can take values x1,x2,x3,...........,xn, the expected value (EV) is given by:
+
+
+
+EV(X)=x1∗P(X=x1)+x2∗P(X=x2)+x3∗P(X=x3)+...........+xn∗P(X=xn)
+
+
+
+As you may recall, for our red ball game, the expected value came out to be 2.385. What does that mean?
+
+Keeping the prize money as ₹150 and increasing the penalty to ₹25 would make the expected value (0.133 * 150) + (0.867 * -25) = -1.725, which is a negative value.
+
+
+Feedback:
+Recall that the expected value of a random variable is given by x1 *P(X= x1 ) + x2*P(X=x2) + x3*P(X=x3) + ……. + xn*P(X=xn), where x1, x2, x3 ….. xn are all the different possible values of X. So, the expected value here would be 150*P(X = 150) + (-150)*P(X = -150) + (-10)*P(X = -10). Now, P(X = 150) = P(getting 4 red balls) = 0.133. Also, P(X = -150) = P(getting 4 blue balls) = 0.027 and P(X = -10) = P(getting 1, 2 or 3 red balls) = 0.840. Putting in those values, we get EV(X) = (150*0.133) + (-150*0.027) + (-10*0.840) = +7.5.
+
+
+
+
+################
+    Exposure at default (EAD) is the total money owed by the customer in case of default
+
+    Recovery (R) is the percentage of the exposed money that the bank would be able to recover.
+
+        For example, in the above example, the bank would recover 20% of the exposed money, i.e. 20%*11.5 = ₹2.3 lakh.
+
+    Probability of default (PD) is the probability that the customer will default. This is calculated for each customer using a number of factors such as family income, university attended, etc.
+
+
+
+    Feedback:
+The amount recovered would be equal to 20% of 11.5 lakh, i.e. ₹2.3 lakh. However, X is defined as the money lost by the bank. So, the amount lost would be equal to the total money exposed, i.e. ₹11.5 lakh, minus the money recovered, i.e. ₹2.3 lakh. That would mean that the money lost = 11.5 - 2.3 = ₹9.2 lakh.
+
+
+Feedback:
+The random variable X has two possible values, 9.2 lakh for when the customer defaults, and 0 for when the customer doesn’t. So, the Expected value = 9.2 lakh*P(X = 9.2 lakh) + 0*P(X=0) = 9,20,000*(0.007) + 0*(0.993) = 6,440
+
+
+Feedback:
+X can take two values. When the customer defaults, X = EAD - (EAD*R) = EAD*(1-R). When she/he doesn’t, X = 0. So, the Expected value = EAD(1-R)*P(X = EAD(1-R)) + 0*P(X=0) = EAD*(1-R)*PD + 0
+
+
+A roulette wheel is a game found in many casinos. Let’s go through it and understand how the roulette wheel's design ensures that, in the long run, the player always loses and the house always wins.
+
+
+This is a European roulette wheel.
+
+Figure 7 - European Roulette Wheel
+Figure 7 - European Roulette Wheel
+
+It contains the numbers 0 to 36 written in an irregular sequence. The players can bet on any number from 0 to 36. For example, let’s say that Kriti bets £100 on the number 5. Now, a ball would be dropped into the wheel, which is then given a spin. If the ball lands on the pocket marked 5, Kriti would win (£100)*36 = £3,600, resulting in net winnings of £3,600 - £100 = £3,500. However, if the ball lands on any other pocket, Kriti would not win anything, resulting in net winnings of £0 - £100 = - £100.
+
+There are a total of 37 equally likely possibilities (0 to 36). However, there is only one possibility in which Kriti will win, i.e. the one in which the ball would land on the pocket marked 5. Hence, the probability of her winning the game is 1/37.
+
+Feedback:
+There are two possible values of X, 3,500 and -100. The probability of Kriti’s net winnings being 3,500 is basically the probability of her winning the game, which, as we saw in a previous question, is 1/37. The probability of her net winnings being equal to -100 is basically the probability of her losing the game, which is 36/37. So, the expected value of X = P(X=-100)*(-100) + P(X=3500)*3500 = (36/37)*(-100)+(1/37)*(3500) = -2.70.
+
+
+Feedback:
+Again, there are two possible values of X, 3,500 and -100. However, this time, the probability of Kriti’s net winnings being 3,500 is 1/38, as there are a total of 38 possible outcomes. The probability of her net winnings being equal to -100, basically the probability of her losing the game, is now 37/38. So, the expected value of X = P(X=-100)*(-100) + P(X=3500)*3500 = (37/38)*(-100)+(1/38)*(3500) = -5.26.
+
+
+#############################
+
+
+The probability of getting a blue ball in 1 trial is 0.4. The probability of getting a red ball, as you saw earlier, is 0.6. Now, if you use the multiplication rule of probability to find the probability for the given combination, you’ll get: P(blue ball in first trial)*P(red ball in second trial)*P(red ball in third trial)*P(red ball in fourth trial) = 0.4*0.6*0.6*0.6 = 0.0864.
+
+
+4*(0.4*0.6*0.6*0.6)
+✓ Correct
+Feedback:
+Recall that there are four combinations in which you could get three red balls. All these four combinations have the same probability, i.e. 0.4*0.6*0.6*0.6. So, the total probability of getting 3 red balls is 4*(0.4*0.6*0.6*0.6).
+
+
+The distribution is not exactly the same, as the number of experiments done is very small (75). Had we done a lot more experiments, i.e., played a lot more games, we would have got an even closer estimate.
+
+0.2*0.8*0.8*0.8
+✓ Correct
+Feedback:
+
+Since there are 4 red balls and 1 blue ball in the bag now, the probability of getting a blue ball in 1 trial is 0.2. The probability of getting a red ball is 0.8. Now, if you use the multiplication rule of probability to find the probability for the given combination, you’ll get: P(blue ball in first trial)*P(red ball in second trial)*P(red ball in third trial)*P(red ball in fourth trial) = 0.2*0.8*0.8*0.8 = 0.1024.
+
+
+
+
+the formula for finding binomial probability is given by -
+
+
+
+P(X=r)= nCr(p)r(1−p)n−r
+
+
+
+Where n is no. of trials, p is probability of success and r is no. of successes after n trials.
+
+
+
+However, as Prof. Tricha said, there are some conditions that need to be followed in order for us to be able to apply the formula.
+
+    Total number of trials is fixed at n
+
+    Each trial is binary, i.e., has only two possible outcomes - success or failure
+
+    Probability of success is same in all trials, denoted by p
+
+
+
+
+    There are a total of 4 options. Hence, the probability that the student would randomly select the correct option is 1 / 4. Hence, p = 1 / 4. Now, the probability of getting 3 out of 10 questions correct can be found by using the binomial probability for n = 10, r = 3. Hence, the probability = 10C3(1/4)3(3/4)7 = 0.25.
+
+
+    So, the cumulative probability of X, denoted by F(x), is defined as the probability of the variable being less than or equal to x.
+Feedback:
+
+If X is defined as the number of pasta packets found to be defective after testing 10 packets, then X would follow a binomial distribution with n = 10 and p = 0.05. Now, you want to find the expected value, which would be equal to EV(X) = 0*P(X=0) + 1*P(X=1) + 2*P(X=2) + 3*P(X=3) + 4*P(X=4) + 5*P(X=5) + 6*P(X=6) + 7*P(X=7) + 8*P(X=8) + 9*P(X=9) + 10*P(X=10). Using a spreadsheet to calculate the individual probabilities, you can find that the expected value EV(X) = 0.5
+
+
+In mathematical terms, you would write cumulative probability F(x) = P(X<x). For example, F(4) = P(X<4), F(3) = P(X<3).
+
+✓ Correct
+Feedback:
+Let’s define X as the number of pasta packets found to be defective after testing 10 packets. Then, X would follow a binomial distribution with n = 10 and p = 0.05, the probability of finding a defective packet. Now, the probability asked in the question becomes P(X=2)= 10C2(0.05)2(0.95)8 = 0.0746, or 07.46%.
+
+
+✓ Correct
+Feedback:
+Let’s define X as the number of pasta packets found to be defective after testing 10 packets. Then, X would follow a binomial distribution with n = 10 and p = 0.05, the probability of finding a defective packet. Now, the probability asked in the question becomes P(X=2)= 10C2(0.05)2(0.95)8 = 0.0746, or 07.46%.
+
+
+
+
+
+All data that is normally distributed follows the 1-2-3 rule. This rule states that there is a -
+
+    68% probability of the variable lying within 1 standard deviation of the mean
+
+    95% probability of the variable lying within 2 standard deviations of the mean
+
+    99.7% probability of the variable lying within 3 standard deviations of the mean
+
+
+
+    Yes
+✓ Correct
+Feedback:
+
+You can still find the cumulative probability. If the variable is normally distributed, then it doesn’t matter what the value of µ and σ is, there is a 34% probability that X lies between µ and µ + σ, i.e. P(µ < X < µ + σ = 34%). Similarly, there is a 50% probability that X is less than µ, i.e. P(X < µ = 50%). Again, this would happen regardless of what the value of µ and σ is. Hence, you can say that P(X < µ + σ) = 84% for every normal variable, no matter what the value of µ and σ is.standardised random variable is an important parameter. It is given by:
+
+
+
+Z=X−μσ
+
+Let’s define X as the astronomical error, which is normally distributed with mean 0 km and standard deviation 1,000 km. Now, you have to find the probability that X > 2330, i.e. P(X>2330). Converting this to Z, it becomes P(Z>2.33). Since P(Z<=2.33) + P(Z>2.33) = 1, P(Z>2.33) = 1 - P(Z<2.33) = 1 - 0.9901 = 0.0099 or 0.99%, which is approximately 1%.
+
+Basically, it tells you how many standard deviations away from the mean your random variable is. As you just saw, you can find the cumulative probability corresponding to a given value of Z, using the Z
+
+
+
+for continuous random variables, probability density functions (PDFs) and cumulative distribution functions (CDFs) are used, instead of the bar chart type of distribution used for the probability of discrete random variables. These functions are preferred because they talk about probability in terms of intervals.
+
+
+✓ Correct
+Feedback:
+Let’s define X as the amount of paracetamol in the selected tablet. Now, X is a normally distributed random variable, with mean μ = 510 mg and standard deviation σ = 20 mg. Now, you have to find the probability of X being less than 550, i.e. P(X<550). Converting this to Z, you get P(X<550) = P(Z<{550-510}/20) = P(Z<2) = 0.977, or 97.7%.
+99.87%
+✓ Correct
+Feedback:
+Let’s define X as the amount of paracetamol in the selected tablet. Now,95%
+✓ Correct
+Feedback:
+Let’s define X as the amount of paracetamol in the selected tablet. Now, X is a normally distributed random variable, with mean μ = 505 mg and standard deviation σ = 25 mg. Now, you have to find the probability of X being more than 450 and less than 550, i.e. P(450 < X < 550). Converting this to Z, you get P(450 < X < 550) = P({450-505}/25 < Z < {550-505}/25) = P(-2.2 < Z < 1.8) = P(Z < 1.8) - P(Z < -2.2) = 0.9641 - 0.0139 = 0.9502, or 95%. X is a normally distributed random variable, with mean μ = 510 mg and standard deviation σ = 20 mg. Now, you have to find the probability of X being more than 450, i.e. P(X>450). Converting this to Z, you get P(X>450) = P(Z>{450-510}/20) = P(Z>-3) = 1 - P(Z<-3) = 0.9987, or 99.87%.
+
+0.4
+✓ Correct
+Feedback:
+The probability of the variable lying between -1.5 and 2.5 would be equal to the area under the PDF, between X = -1.5 and X = 2.5. This would be equal to the area of a rectangle, with breadth 0.1 and length 2.5 - (-1.5) = 4. Multiplying the two, you get the area of the rectangle, which is equal to 0.1*4 = 0.4.
+
+
+
+21.45
+✓ Correct
+Feedback:
+We found in the previous question that the sample mean (¯X) = 139.69. Now, we can find ∑(Xi−¯X)2, which turns out to be 1841.26. Dividing this by n-1, i.e, 4, we get the value of S^2 as 460.315. The value of S, thus, will be equal to √(460.315) = 21.45
+
+
+The sampling distribution’s mean is denoted by μ¯X, as it is the mean of the sampling means. Let’s see what it is for this sampling distribution.
+
+So, there are two important properties for a sampling distribution of the mean:
+
+    Sampling distribution’s mean (μ¯X) = Population mean (μ)
+
+    Sampling distribution’s standard deviation (Standard error) = σ√n, where σ is the population’s standard deviation and n is the sample size
+
+
+
+Recall that, in the last video, we created a sampling distribution and found the value of its mean and standard deviation, which turned out to be 2.348 and 0.4248, respectively. These values were very close to the values suggested by the formula, i.e. 2.385 and 0.44.
+
+So, the central limit theorem says that, for any kind of data, provided a high number of samples has been taken, the following properties hold true:
+
+    Sampling distribution’s mean (μ¯X) = Population mean (μ)
+
+    Sampling distribution’s standard deviation (Standard error) = σ√n
+
+    For n > 30, the sampling distribution becomes a normal distribution
+
+    49.6%
+✓ Correct
+Feedback:
+There would be 42 people for whom Y would be equal to 1, and 58 people for whom Y would be equal to 0. Hence, the sample’s variance = (1−0.42)2∗42+(0−0.42)2∗58100−1=0.2461. So, the standard deviation is equal to its square root, i.e. 0.496 or 49.6%
+
+50%
+✓ Correct
+Feedback:
+You have to find the mean for all the people or, in other words, the population mean. Using CLT, you can say that the mean of the sampling distribution = the population mean. As the question says that the sampling distribution’s mean = 0.5, the population mean also = 0.5 or 50%
+
+48%
+✓ Correct
+Feedback:
+You have to find the standard deviation for all people or, in other words, the population standard deviation σ. Using CLT, you can say that (σ/√n) = SE. Hence, (σ/√100) = 0.048, which gives σ = .48 or 48%
+
+
+(50.11%, 50.89%)
+✓ Correct
+Feedback:
+From the above, you have X= 50.5%, S = 20% and n = 10,000. The confidence interval is given by (¯X−Z∗S√n,¯X+Z∗S√n), where Z* is the Z score associated with 95% confidence level = 1.96. Hence, the 95% confidence interval would be (50.5 = (50.11% to 50.89%).
+
+
+
+
+###############
+
+
+19.6 mg
+✓ Correct
+Feedback:
+If X is the defined as the paracetamol content, then for this sample of X, sample mean ¯X = 530 mg, sample standard deviation S = 100 mg and sample size n = 100. Also, for 95% confidence interval, Z* is 1.96. Now, you know that the margin of error = Z∗S√n=1.96∗100√100 = 19.6
+
+
+
+Feedback:
+As you know, sample mean ¯X = 530 and Z∗S√n = 19.6. Now, you know the confidence interval is (¯X−Z∗S√n,¯X+Z∗S√n). Putting in the values, you can calculate the confidence interval as (510.4, 549.6).
+
+
+
+
+Feedback:
+As you know, sample mean ¯X = 530, S = 100 and n = 100. Also, for 90% confidence interval, Z* is 1.65. Now, you know the confidence interval is (¯X−Z∗S√n,¯X+Z∗S√n). Putting in the values, you can calculate the confidence interval as (513.5, 546.5).
+
+
+Yes, we can claim the tablets are fit to consume at both:
+
+95% confidence level: The 95% confidence interval you calculated is 510.4mg to 549.6mg, which falls entirely within the acceptable range of 450 mg to 550 mg.
+90% confidence level: The 90% confidence interval is (513.55 mg, 546.45 mg), also well within the acceptable range.
+
+he margin of error = Z∗S√n. From the data given above, you know that S = 49.6% or 0.496 and n = 100. The value of Z* corresponding to 95% confidence is 1.96. So, the margin of error = 1.96∗0.496√100 = 0.0972, or 9.72%
+
+
+Feedback:
+Recall that the margin of error = 9.72% and the sample mean ¯X = 58%. So, the confidence interval is (58%-9.72%, 58%+9.72%)
+
+(32.28%, 51.72%)
+✓ Correct
+Feedback:
+For the variable Y, the sample mean ¯X = 42%. S, the sample’s standard deviation = 49.6% and the sample size n = 100. So, the 95% confidence interval = (¯X−Z∗S√n,¯X+Z∗S√n). Putting in the values, you get that the confidence interval is (32.28%, 51.72%).
+
+The confidence interval, as you remember, is given by (¯X−Z∗S√n,¯X+Z∗S√n). Using Excel or R, you can calculate that the mean, ¯X = ₹45,571 and the standard deviation S = 7457. Also, since the sample csv file has 200 entries, sample size, n = 200. Z* value for 90% confidence level is 1.65. Putting in all the values, you get the confidence interval (₹44,701, ₹46,441).
+
+Feedback:
+The confidence interval, as you remember, is given by (¯X−Z∗S√n,¯X+Z∗S√n). In the last question, you found that the value of the mean, ¯X = ₹45,571 and the standard deviation, S = 7457. Also, you know that sample size, n = 200 and Z* value for 99% confidence level is 2.58. Putting in all the values, you will get the confidence interval (₹44,210, ₹46,932).
+
