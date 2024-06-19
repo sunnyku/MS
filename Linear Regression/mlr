@@ -1,0 +1,103 @@
+Assume that a model has zero training error. i.e. it has completely memorised the training data(a case of overfitting). Which of the following statements is definitely true in this case:
+
+The prediction error on the test set cannot be zero
+✕ Incorrect
+Feedback:
+
+If the training data is a perfectly accurate representation of the test data and there is no noise in the training data, this situation is possible. Although this is highly unlikely.
+
+The prediction error on the test set will always be very high
+
+None of the above
+✓ Correct
+Feedback:
+
+Due to overfitting, it is highly likely that you will have high prediction error on the test set. This would be the case more often than not. But there can be exceptions hence such a statement cannot be made for sure.
+
+
+ Imputing categorical variables
+
+Consider the following dataset:
+
+   sepal-length  sepal-width  petal-length  petal-width        class
+0           5.1          3.5           1.4          0.2  Iris-setosa
+1           4.9          3.0           1.4          0.2  Iris-setosa
+2           4.7          3.2           1.3          0.2  Iris-setosa
+3           4.6          3.1           1.5          0.2  Iris-setosa
+4           5.0          3.6           1.4          0.2  Iris-setosa
+
+Consider that the categorical column/variable has missing values, which metric would you impute the missing values with?
+
+Mean
+
+Median
+
+Mode
+✓ Correct
+Feedback:
+
+Categorical values are generally imputed with the mode as it represents the value that is the most common for the given column.
+
+
+Residuals
+
+In regression analysis, which of the statements is true?
+
+The mean of residuals is always equal to zero.
+
+✓ Correct
+Feedback:
+
+When a model gives you a “best fit” line, by design it is made such that the mean of all residuals is always zero.
+
+The mean of residuals is less than zero at all times.
+
+
+The sum of residuals is more than zero at all times.
+
+
+The sum of residuals is always equal to zero.
+
+✓ Correct
+Feedback:
+
+When a model gives you a “best fit” line, by design it is made such that the sum of all residuals is always zero.
+
+Linear regression
+
+Which of the following is incorrect about linear regression?
+
+Linear regression is very sensitive to data anomalies.
+
+
+Linear regression performs poorly when there are non-linear relationships.
+
+Linear regression guarantees interpolation but not extrapolation.
+
+Linear regression assumes that the data points are not independent (i.e. One observation might be affected by another).
+
+Overfitting
+
+State True or False:
+
+Overfitting leads to a very high value of R-squared, which is misleading since the model is not actually a good predictor.
+
+True
+✓ Correct
+Feedback:
+
+Overfitting causes the model to almost memorize the data. This reduces the distance between predicted and actual values in the training set. However, this could make the model less accurate on new data, i.e., the model memorises the data instead of recognizing the pattern that the data is following.
+
+
+R-squared
+
+Which of the following will help you in effectively comparing models (built on the same dataset) with different numbers of features?
+
+R-squared
+
+R-squared-adjusted
+✓ Correct
+Feedback:
+
+This will take number of features into account and give you a fair idea of how many features the model should have.
+

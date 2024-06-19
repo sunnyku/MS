@@ -1,0 +1,183 @@
+ 
+Multiple linear regression is needed when one variable might not be sufficient to create a good model and make accurate predictions.
+
+
+The R-squared will always either increase or remain the same when you add more variables. Because you already have the predictive power of the previous variable so the R-squared value can definitely not go down. And a new variable, no matter how insignificant it might be, cannot decrease the value of R-squared.
+
+
+Most of the concepts in multiple linear regression are quite similar to those in simple linear regression. The formulation for predicting the response variable now becomes:
+
+
+
+Y=β0+β1X1+β2X2+...+βpXp+ϵ
+
+
+
+Apart from the formulation, there are some other aspects that still remain the same:
+
+    The model now fits a hyperplane instead of a line
+    Coefficients are still obtained by minimising the sum of squared errors, the least squares criteria
+    For inference, the assumptions from simple linear regression still hold - zero-mean, independent and normally distributed error terms with constant variance
+
+
+
+The new aspects to consider when moving from simple to multiple linear regression are:
+
+    Overfitting
+        As you keep adding the variables, the model may become far too complex
+        It may end up memorising the training data and will fail to generalise
+        A model is generally said to overfit when the training accuracy is high while the test accuracy is very low
+    Multicollinearity
+        Associations between predictor variables, which you will study later
+    Feature selection
+        Selecting the optimal set from a pool of given features, many of which might be redundant becomes an important task
+
+
+
+Multicollinearity refers to the phenomenon of having related predictor variables in the input dataset.
+
+Multicollinearity affects:
+
+    Interpretation:
+        Does “change in Y, when all others are held constant” apply?
+    Inference:
+        Coefficients swing wildly, signs can invert
+        p-values are, therefore, not reliable
+
+You saw two basic ways of dealing with multicollinearity
+
+    Looking at pairwise correlations
+        Looking at the correlation between different pairs of independent variables
+    Checking the Variance Inflation Factor (VIF)
+        Sometimes pairwise correlations aren't enough
+        Instead of just one variable, the independent variable might depend upon a combination of other variables
+        VIF calculates how well one independent variable is explained by all the other independent variables combined
+
+The VIF is given by:
+
+
+
+                                                                               VIFi=11−Ri2
+
+
+
+where 'i' refers to the i-th variable which is being represented as a linear combination of rest of the independent variables. You'll see VIF in action during the Python demonstration on multiple linear regression.
+
+
+
+The common heuristic we follow for the VIF values is:
+
+> 10:  Definitely high VIF value and the variable should be eliminated.
+
+> 5:  Can be okay, but it is worth inspecting.
+
+< 5: Good VIF value. No need to eliminate this variable.
+Some methods that can be used to deal with multicollinearity are:
+
+    Dropping variables
+        Drop the variable which is highly correlated with others
+        Pick the business interpretable variable
+    Create new variable using the interactions of the older variables
+        Add interaction features, i.e. features derived using some of the original features
+    Variable transformations
+        Principal Component Analysis (covered in a later module)
+Feedback:
+
+The predictive power given by the R-squared value is not affected because even though you might have redundant variables in your model, they would play no role in affecting the R-squared. Recall the thought experiment that Rahim had conducted in one of the lectures. So suppose you have two variables, X1 and X2 which are exactly the same. So using any of the following, say, 10X1 or (4X1 + 6X2) will give you the same result. In the second case, even though you have increased one variable, the predictive power remains the same.
+
+
+
+
+VIF measures how well a predictor variable can be predicted using all other predictor variables
+
+When you have a categorical variable with say 'n' levels, the idea of dummy variable creation is to build 'n-1' variables, indicating the levels. For a variable say, 'Relationship' with three levels namely, 'Single', 'In a relationship', and 'Married', you would create a dummy table like the followin
+
+
+It is important to note that scaling just affects the coefficients and none of the other parameters like t-statistic, F-statistic, p-values, R-squared, etc.
+
+
+
+There are two major methods to scale the variables, i.e. standardisation and MinMax scaling. Standardisation basically brings all of the data into a standard normal distribution with mean zero and standard deviation one. MinMax scaling, on the other hand, brings all of the data in the range of 0 and 1. The formulae in the background used for each of these methods are as given below:
+
+    Standardisation:  x=x−mean(x)sd(x)
+    MinMax Scaling: x=x−min(x)max(x)−min(x)
+
+Now, for the assessment, you have a lot of new considerations to make. Besides, selecting the best model to obtain decent predictions becomes quite subjective. You need to maintain a balance between keeping the model simple and explaining the highest variance (which means that you would want to keep as many variables as possible). This can be done using the key idea that a model can be penalised for keeping a large number of predictor variables.
+
+
+
+Hence, there are two new parameters that come into picture:
+
+
+
+                                                              Adjusted R2=1−(1−R2)(N−1)N−p−1
+
+
+                                                                  AIC=n×log(RSSn)+2p
+
+
+
+Here, n is the sample size meaning the number of rows you'd have in the dataset and p is the number of predictor variables.
+
+
+The major difference between R-squared and Adjusted R-squared is that R-squared doesn't penalise the model for having more number of variables. Thus, if you keep on adding variables to the model, the R-squared will always increase (or remain the same in the case when the value of correlation between that variable and the dependent variable is zero). Thus, R-squared assumes that any variable added to the model will increase the predictive power.
+
+Adjusted R-squared on the other hand, penalises models based on the number of variables present in it. So if you add a variable and the Adjusted R-squared drops, you can be certain that that variable is insignificant to the model and shouldn't be used. So in the case of multiple linear regression, you should always look at the adjusted R-squared value in order to keep redundant variables out from your regression model.
+
+
+
+This is where manual feature elimination comes in, where you:
+
+    Build the model with all the features
+    Drop the features that are least helpful in prediction (high p-value)
+    Drop the features that are redundant (using correlations and VIF)
+    Rebuild model and repeat
+
+Note that, the second and third steps go hand in hand and the choice of which features to eliminate first is very subjective. You'll see this during the hands-on demonstration of multiple linear regression in Python in the next session.
+
+
+
+
+A high p-value means that the variable is not significant, and hence, doesn't help much in prediction.
+
+Recursive feature elimination is based on the idea of repeatedly constructing a model (for example, an SVM or a regression model) and choosing either the best or worst performing feature (for example, based on coefficients), setting the feature aside and then repeating the process with the rest of the features. This process is applied until all the features in the dataset are exhausted. Features are then ranked according to when they were eliminated. As such, it is a greedy optimisation for finding the best performing subset of features.
+
+
+
+Here’s a brief summary of what you learned in this session:
+
+    When one variable might not be enough
+        A lot of variance isn’t explained by just one feature
+        Inaccurate predictions
+    Formulation of MLR: MLR  helps us to understand how much will the dependent variable change when we change the independent variables.
+    New considerations to be made when moving from SLR to MLR
+        Overfitting - When the model becomes complex and gives very good results in training data and fails in the testing data.
+        Multicollinearity - To identify if there is any dependency within the pool of independent variables to remove redundancy.
+        Feature selection - Out of the pool of many features what features are considered to be most important. We drop the redundant features and those features that are not helpful in prediction.
+    Dealing with categorical variables
+        Dummy variables - USed when there are fewer levels. You learnt about it using the marital status example.
+    Feature Scaling
+        Standardisation - Method used to make sure that data is internally consistent.
+        MinMax scaling - Method used to make sure that data is internally consistent.
+        Scaling for categorical variables - Categorical variables cannot used as they are, so they are converted to numeric format.
+    Model Assessment and Comparison
+        Adjusted R-squared - The adjusted R-squared value increases only if the new term improves the model more than would be expected by chance.
+        AIC, BIC - Various types of criteria used for automatic feature selection
+    Feature Selection
+        Manual feature selection - A very tedious task in order to select the correct set of features.
+        Automated feature selection - The three step process is involved.
+            Select top 'n' features
+            Forward/backward/Stepwise selection based on AIC
+            Regularization
+        Finding a balance between the two - A balance of both manual and automatic feature selection is required to attain the features.
+
+
+Feedback:
+
+Correct! The formula for VIF is given by:
+
+VIF=11−Ri2
+
+Here, the R-squared variable will simply be the correlation coefficient squared since we have only 2 variables. Hence, you have:
+
+VIF=11−0.92≈5.26
