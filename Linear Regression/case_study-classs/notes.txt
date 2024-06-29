@@ -1,0 +1,10 @@
+cnt is bi-variable, target variable
+casual + register -drop theseseason1:
+
+mkae sure to calculare R2
+getDummies
+
+Look for missing values - no but make sure to write in code to get marks
+min-max
+
+map: {1: 'Wed', 2: 'Thurs', 3: 'Fri', 4: 'Sat', 5: 'Sun', 6: 'Mon', 0: 'Tues'}
