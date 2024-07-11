@@ -1,0 +1,227 @@
+P(E) = Number of favourable outcomes / Total number of possible outcomes
+
+Suppose the chance of India winning a cricket match is generally 80 % but now given that Virat Kohli is injured the chances of India winning reduces to 50% only.
+
+So Prior is Probability of India winning i.e 80% and Posterior is Probability of India winning given  that Virat Kohli is injured i.e 50 %
+
+Conditional probability is needed to understand relative probabilities, which is more often the case in the real world scenarios instead of looking into the absolute probability of events in isolation.
+
+
+
+Naïve Bayes is a probabilistic classifier that returns the probability of a test point belonging to a class, using Bayes’ theorem. As you learned previously, Bayes’ theorem is defined as —
+
+P
+(
+C
+i
+|
+x
+)
+=
+P
+(
+x
+|
+C
+i
+)
+P
+(
+C
+i
+)
+P
+(
+x
+)
+ , where 
+C
+i
+ denotes the classes, and X denotes the features of the data point.
+
+Probabilities are calculated simply by counting the number of instances/occurrences for categorical data.
+
+The effect of the denominator P(x) is not incorporated while calculating probabilities as it is the same for both the classes and hence, can be ignored without affecting the final outcome.
+
+The class assigned to the new test point is the class for which  
+P
+(
+C
+i
+|
+x
+)
+ is greater.
+
+
+What is the prior probability of a mail being spam, P(class = spam)?
+
+￼
+7/15
+✓ Correct
+Feedback:
+There are 7 spam mails in the data set.
+
+That frequency of keywords like hurry, free, offer etc. are conditionally independent of each other
+
+✓ Correct
+Feedback:
+Naive Bayes assumes that the features (frequency of hurry, free etc.) are conditionally independent of each other.
+
+Consider an email with the vector of features X = (free, data, weekend, click). What is the likelihood, P(X | spam)?
+
+￼
+2/ 50625
+￼
+2/2401
+￼
+4/ 50625
+￼
+4/ 2401
+✓ Correct
+Feedback:
+P(X | spam) = P(free|spam). P(data|spam). P(weekend | spam). P(click|spam) = (2/7)(1/7)(1/7)(2/7) = 4/2401
+
+
+2/ 4096
+✓ Correct
+Feedback:
+P(X | ham) = P(free|ham). P(data|ham). P(weekend | ham). P(click | ham) = (1/8)(2/8)(1/8)(1/8) = 2/4096.
+
+
+
+he Bag of Words representation captures the "what" (word types and frequencies) but not the "how" (word order and relationships) of the text
+Suggested Answer
+It is because the sentences are broken down into words and the ordering doesn't matter anymore as if it were put in a bag and shuffled.
+
+It is because the denominator will be same for both the classes and hence will not affect the final result.
+
+
+
+What is Binarization of a feature vector?
+
+￼
+Converting each entry of word count in a feature vector to binary number
+
+￼
+Converting all non-zero word count of a feature vector to 1 and leaving zero counts as it is
+
+✓ Correct
+Feedback:
+Self-explanatory.
+
+
+coffee
+
+cold
+
+espresso
+
+hot
+
+pepsi
+
+soup
+
+sprite
+
+tea
+
+2
+
+1
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+We convert all non-zero entries to 1 to make it a binarized feature vector in case of Bernoulli Naive Bayes. Binarized feature vector only represents the presence or absence of a word in the document.
+
+
+Probability of all the words of the document which are present in the dictionary are multiplied ignoring words which are not present in the dictionary. Here “and” is ignored as it is not part of the dictionary as it is a stop word.
+
+A bag A contains 3 Red and 4 Green balls and another bag B contains 4 Red and 6 Green balls. One bag is selected at random and a ball is drawn from it. If the ball drawn is found Green , find the probability that the bag chosen was A.
+Let E1, E2 denote the events of selecting bag A and B respectively. 
+
+Then P(E1) = P(E2) = 1/2.
+
+ Let G denote the event that the ball chosen from the selected bag is Green.
+
+Then we have to find P(E1/G).
+
+Step 2:
+
+By hypothesis P(G/E1) = 4/7 and  P(G/E2) = 6/10
+
+By Bayes theorem P(E1/G) = (P(G/E1)*P(E1))/P(G)
+
+ Now what is P(G) ?  P(G) = P(G,E1) + P(G,E2)
+
+    = P(G/E1)P(E1) + P(G/E2)P(E2)
+
+Therefore  P(E1/G) =  (P(G/E1)*P(E1))/P(G)
+
+                    =P(G/E1)*P(E1)/P(E1)P(G/E1) + P(E2)P(G/E2)
+
+=(4/7)x(1/2) / (1/2)x(4/7)+(1/2)x(6/10)=(4/14) / (4/14 + 6/20)=20/41
+
+
+
+
+
+Conditional Probability
+Consider the following equation in a Naive Bayes classification problem.
+
+P (x|c) = P (
+x
+1
+|c) . P (
+x
+2
+|c) .  ......  . P (
+x
+d
+|c) = 
+∏
+d
+k
+=
+1
+P
+(
+x
+k
+|
+c
+)
+
+Here X is a feature vector where x1, x2 …. are attributes of that feature vector. C is a specific class. Which of the following is/are true w.r.t  the above information
+
+Above equation is only true if x1, x2...xd are conditionally independent 
+
+P(x∣c) simply means: “How likely is it to observe this particular pattern x given that it belongs to class c
+
+In the context of a classification problem P(x|c) is also termed as the likelihood 
+
+P(x|c) is also termed as the posterior probability
+
+￼
+Option 1 and 4
+
+￼
+Option 2 and 3
+
+￼
+Option 1 and 2
+
+✕ Incorrect
+￼
+Option 1,2 and 3
