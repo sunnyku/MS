@@ -1,0 +1,171 @@
+ϵiis not the variance of the error associated with the model but is the error associated with each data point.
+
+The sum of the squares of errors is considered the loss/cost function in linear regression, which has to be minimised. The entire linear regression framework is built upon the idea of getting those coefficient estimates that minimise the cost, i.e., RSS. The smaller the value of RSS, the closer is the model fit to the data.
+
+Root mean square error (RMSE) is the square root of mean squared error. Mean squared error is the variance of the residuals. RMSE tells us how close the actual data points are to predictions made by the model
+
+Residual is given by the y(actual) - y(predicted). Sum of residuals = {(6-6.4) + (5-4.7) + (3-3.1) + (4.3-4) + (4.4 - 4.5)} = { -0.4 + 0.3 - 0.1 + 0.3 - 0.1} = 0
+
+Gradient descent is an iterative optimisation algorithm to find the minimum of a cost function; this means we apply a certain update rule over and over again, and following that, our model coefficients or betas would gradually improve according to our objective function.
+
+In linear regression, we try to minimise the least-square errors of the model in order to identify the line of best fit.
+
+Before delving further into the matrix representation, let's try and understand some of the benefits of using matrices:
+
+Formulae become simpler, and more compact and readable.
+
+Code using matrices runs much faster than explicit ‘for’ loops. 
+
+Python libraries, such as NumPy, help us build n-dimensional arrays, which occupy less memory than Python lists and computation is also faster.
+
+
+The linear regression framework comprises certain key assumptions. Let's try and understand the importance of each of these assumptions one by one.
+
+There is a linear relationship between X and Y
+
+X and Y should display a linear relationship of some form; otherwise, there is no use of fitting a linear model between them.
+
+2. Error terms are distributed normally with mean equal to 0 (not X, Y)
+
+There is no problem if the error terms are not distributed normally if you wish to just fit a line and not make any further interpretations.
+
+However, if you wish to draw some inferences on the model that you have built, then you need to have a notion of the distribution of the error terms. One particular repercussion if the error terms are not distributed normally is that the p-values obtained during the hypothesis test to determine the significance of the coefficients become unreliable. 
+
+The assumption of normality is made, as it has been observed that the error terms generally follow a normal distribution with mean equal to 0 in most cases but it is necessary that the mean is 0. The only necessary condition is that the residuals are normally distributed. 
+
+3. Error terms are independent of each other
+
+The error terms should not be dependent upon one another (like in time-series data, where the next value is dependent upon the previous one).
+
+4. Error terms have constant variance (homoscedasticity)
+
+Variance should not increase (or decrease) with a change in error values.
+
+Also, variance should not follow any pattern with a change in error terms.
+
+We basically use the following plots, which help us assess the above assumptions qualitatively:
+
+Residual versus prediction plot: This plot helps us detect nonlinearity, unequal error variances and outliers.
+
+Histogram of error terms: This plot helps detect non-normality of the error values.
+
+
+✓ Correct
+Feedback:
+Consistent change in the residuals as we move from the left of the x axis to the right indicates the presence of heteroscedasticity.
+
+how to identify nonlinearity in data for simple linear regression and multiple linear regression: 
+
+For Simple Linear Regression 
+
+Plot the independent variable against the dependent variable to check for nonlinear patterns.
+
+For Multiple Linear Regression, since there are multiple predictors, we, instead, plot the residuals versus the predicted values, 
+^
+y
+i
+. Ideally, the residual plot will show no observable pattern. In case a pattern is observed, it may indicate a problem with some aspect of the linear model. Apart from that:
+
+Residuals should be randomly scattered around 0.
+The spread of the residuals should be constant.
+There should be no outliers in the data
+
+
+For Multiple Linear Regression, since there are multiple predictors, we, instead, plot the residuals versus the predicted values. Ideally, the residual plot will show no observable pattern.
+
+Since this is a cubic fit, we need to include third degree of the predictor. In polynomial regression, we need to include the lower degree polynomials in the model as well. Hence, we include all three predictors as mentioned in the answer.
+
+In polynomial regression, we need to include the lower degree polynomials in the model as well. Hence, we include all three predictors. Recall that model equation also contains the error term.
+
+linear regression assumes that the relationship between the response and predictor variables is linear. In order to continue using the linear regression framework, we transformed the data so that the relationship does become linear.
+
+
+
+Another point to keep in mind is that the model coefficients that we obtain from an ordinary-least-squares (OLS) model can be quite unreliable if among all the predictors that we used to build our model, only a few are related significantly to the response variable. 
+
+ 
+
+So, what is regularization and how does it help solve this problem?
+
+ 
+
+Regularization helps with managing model complexity by essentially shrinking the model coefficient estimates towards 0. This discourages the model from becoming too complex, thus avoiding the risk of overfitting.
+
+More extreme the magnitude of the coefficients and/or higher the number of coefficients may be the reasons for a model overfitting.
+
+We know that when building an OLS model, we want to estimate the coefficients for which the cost/loss, i.e., RSS, is minimum. Optimising this cost function results in model coefficients with the least possible bias, although the model may have overfitted and hence have high variance. 
+
+ 
+
+In case of overfitting, we know that we need to manage the model’s complexity by primarily taking care of the magnitudes of the coefficients. The more extreme values of the coefficients are (high positive or negative values of the coefficients), the more complex the model is and, hence, the higher are the chances of overfitting. 
+
+ the cost function would be Cost = RSS + Penalty.
+ 
+ Note that we also need to remember two points about the model coefficients that we obtain from OLS:
+
+These coefficients can be highly unstable – this can happen when only a few of the predictors that we have considered to build our model are related significantly to the response variable and the rest are not very helpful, hence random variables.
+There may be a large variability in the model coefficients due to these unrelated random variables such that even a small change in the training data may lead to a large variance in the model coefficients. Such model coefficients are no longer reliable, since we may get different coefficient values each time we retrain the model.
+Multicollinearity, i.e., the presence of highly correlated predictors, may be another reason for the variability of model coefficients. Regularization helps here as well.
+
+ 
+
+So, to summarise, we use regularization because we want our models to work well with unseen data, without missing out on identifying underlying patterns in the data. For this, we are willing to make a compromise by allowing a little bias for a significant reduction in variance. We also understood that the more extreme the values of the model coefficients are, the higher are the chances of model overfitting. Regularization prevents this by shrinking the coefficients towards 0. In the next two segments, we will discuss the two techniques of regularization: Ridge and Lasso and understand how the penalty term helps with the shrinkage.
+
+When we use regularization, we want our model to perform well on unseen data and at the same time, we want the model to identify the underlying patterns present in the data. 
+An underfitting model is not a suitable model as it will show poor performance with the training data. Usually, a model that is an underfit would have high training as well as testing error.
+
+
+
+In OLS, we get the best coefficients by minimising the residual sum of squares (RSS). Similarly, with Ridge regression also, we estimate the model coefficients, but by minimising a different cost function. This cost function adds a penalty term to the RSS.
+
+Another point to note is that in OLS, we will get only one set of model coefficients when the RSS is minimised. However, in Ridge regression, for each value of lambda, we will get a different set of model coefficients.
+
+to summarise:
+
+Ridge regression has a particular advantage over OLS when the OLS estimates have high variance, i.e., when they overfit. Regularization can significantly reduce model variance while not increasing bias much. 
+
+The tuning parameter lambda helps us determine how much we wish to regularize the model. The higher the value of lambda, the lower the value of the model coefficients, and more is the regularization. 
+
+Choosing the right lambda is crucial so as to reduce only the variance in the model, without compromising much on identifying the underlying patterns, i.e., the bias.  
+
+It is important to standardise the data when working with Ridge regression.
+
+Unlike OLS, which has a single set of model coefficients, Ridge regressions gets different model coefficients for each value of lambda.
+
+The model coefficients of ridge regression can shrink very close to 0 but do not become 0 and hence there is no feature selection with ridge regression. In order to know more, refer to the segment "Geometrical Representation of Ridge and Lasso".
+
+The objective is to minimise the error term and penalise the coefficients in the regularization term in order to obtain a simpler model
+
+A large lambda implies a simpler model. Therefore, a simpler model would have higher bias and lower variance.
+
+The primary difference between Lasso and Ridge regression is their penalty term. The penalty term here is the sum of the absolute values of all the coefficients present in the model. As with Ridge regression, Lasso regression shrinks the coefficient estimates towards 0. However, there is one difference. With Lasso, the penalty pushes some of the coefficient estimates to be exactly 0, provided the tuning parameter, λ, is large enough.
+
+ 
+
+Hence, Lasso performs feature selection. Choosing an appropriate value of lambda is critical here as well. Because of this, it is easier to interpret models generated by Lasso as compared with those generated by Ridge. Also, just like with Ridge regression, standardisation of variables is necessary for Lasso as well.
+
+ to summarise:
+
+The behaviour of Lasso regression is similar to that of Ridge regression.
+With an increase in the value of lambda, variance reduces with a slight compromise in terms of bias.
+Lasso also pushes the model coefficients towards 0 in order to handle high variance, just like Ridge regression. But, in addition to this, Lasso also pushes some coefficients to be exactly 0 and thus performs variable selection.
+This variable selection results in models that are easier to interpret.
+
+Generally, Lasso should perform better in situations where only a few among all the predictors that are used to build our model have a significant influence on the response variable. So, feature selection, which removes the unrelated variables, should help. But Ridge should do better when all the variables have almost the same influence on the response variable. 
+
+
+Lasso performs better in situations where only a few among all the predictors that are used to build our model have a significant influence on the response variable.
+
+Higher the value of lambda in the shrinkage term, more are the model coefficients pushed towards 0 and hence more the regularization.
+
+Standardizing variables is necessary before regularization.
+
+
+Ridge Regression is a technique for analysing multiple linear regression data that suffer from multicollinearity. When multicollinearity occurs, least squares estimates are unbiased, but their variances are large so they may be far from the true value. By adding a degree of bias to the regression estimates, ridge regression reduces the standard test errors.
+
+ 
+
+Consider a data set (split into training and test) on which you build a ridge regression model. Assume that only the raw attributes have been used and no new features have been developed for model building.
+
+
+
