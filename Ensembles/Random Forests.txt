@@ -1,0 +1,160 @@
+Bagging chooses random samples of observations from a data set. Each of these samples is then used to train each tree in the forest. However, keep in mind that bagging is only a sampling technique and is not specific to random forests.
+
+
+In the bagging type of ensembles, random forests are by far the most successful. They are essentially ensembles of a number of decision trees. You can create a large number of models (say, 100 decision trees), each one on a different bootstrap sample from the training set. To get the result, you can aggregate the decisions taken by all the trees in the ensemble.
+
+Bootstrapping refers to creating bootstrap samples from a given data set. A bootstrap sample is created by sampling the given data set uniformly and with replacement. A bootstrap sample typically contains about 40–70% data from the data set. Aggregation implies combining the results of different models present in the ensemble.
+
+ 
+
+You learnt that a random forest selects a random sample of data points (bootstrap sample) to build each tree and a random sample of features while splitting a node. Randomly selecting features ensures that each tree is diverse and that some prominent features are not dominating in all the trees making them somewhat similar.
+
+
+Suppose you want to build a random forest of 10 decision trees. First, you will create 10 bootstrap samples from the data, and then, you will train each tree on a different bootstrap sample
+
+A different random subset of observations is chosen, which is called the bootstrap sample, for each tree that is to be built in the forest. This is called bootstrapping.
+
+After the bootstrap sample is selected, tree building starts, and a random subset of features is selected at each node in order to split it. This is what makes random forests better than a simple bagging algorithm.
+
+Bagging includes the creation of different bootstrap samples for different models, and aggregating the results of the models. Random forests use this technique along with randomly selecting features at each node while splitting it.
+
+The final prediction is the mean of all the predictions of the individual decision trees.
+
+Advantages of Blackbox Models Over Tree and Linear Models
+Diversity: Diversity arises because each tree is created with a subset of the attributes/features/variables, i.e., not all the attributes are considered while making each tree; the choice of the attributes is random. This ensures that the trees are independent of each other.
+
+ 
+
+Stability: Stability arises because the answers given by a large number of trees average out. A random forest has a lower model variance than an ordinary individual tree.
+
+ 
+
+Immunity to the curse of dimensionality: Since each tree does not consider all the features, the feature space (the number of features that a model has to consider) reduces. This makes an algorithm immune to the curse of dimensionality. Also, a large feature space causes computational and complexity issues.
+
+ 
+
+Parallelization: You need a number of trees to make a forest. Since two trees are independently built on different data and attributes, they can be built separately. This implies that you can make full use of your multi-core CPU to build random forests. Suppose there are 4 cores and 100 trees to be built; each core can build 25 trees to make a forest.
+
+ 
+
+Testing/training data and the OOB (out-of-bag) error: You should always avoid violating the fundamental tenet of learning: 'Not testing a model on what it has been trained on’. While building individual trees, you can choose a random subset of the observations to train them. If you have 10,000 observations, each tree may only be built from 7,000 (70%) randomly chosen observations. OOB is the mean prediction error on each training sample xᵢ, using only the trees that do not have xᵢ in their bootstrap sample used for building the model. This is very similar to a cross-validation (CV) error. In a CV error, you can measure the performance on the subset of data that the model has not seen before.
+
+ 
+
+In fact, it has been proven that using an OOB estimate is as accurate as using a test data set of a size equal to the training set.
+
+ 
+
+Thus, the OOB error omits the need for set-aside test data (though you can still work with test data like you have been doing, at the cost of eating into the training data).
+
+The word ‘random’ in random forests pertains to the random choice of bootstrapped observations.
+
+Random choice of attributes at each split of a tree ensures that the prominent features do not appear in every tree, thus ensuring diversity.
+
+Random choice of attributes ensures that the prominent features do not appear in every tree, thus ensuring diversity.
+
+If you have only one tree, you have to rely on the decision that it makes. The decision made by a single tree (on unseen data) majorly depends upon the training data, as trees are unstable. On the other hand, in a forest, even if a few trees are unstable, averaging out their decisions ensures that you do not make mistakes because of the unstable behaviour of a few trees.
+
+While it is well known that random forests are better than a single decision tree in terms of accuracy, it cannot be said that they are better than every possible decision tree; the only issue is that it is more difficult to build a decision tree that is better than a random forest. In fact, there may be several trees that provide better predictions on unseen data.
+
+
+Variance refers to how much a model (here, ensemble) changes with changes in the training data. If a large number of trees are at work, then, even if some of them show a high instability (extreme variation in the trees and their predictions), the ensemble as a whole will reduce the variance by averaging out the results of each tree.
+
+
+
+the OOB (out-of-bag) error is almost as good as the cross-validation error. The final prediction is the aggregation of all the predictions of individual decision trees. Remember that each tree in a random forest is trained on a random subset of the training set, which is called a bootstrapped sample. This means that for each sample (observation), there are several trees that did not include that sample, and for these trees, this sample is unseen. Let’s understand this better.
+
+ 
+
+Suppose there are 
+N
+ = 100 observations with 
+M
+ = 15 features, and the outcome variable is a categorical variable Y. Also, you build a random forest with 50 trees. The OOB is calculated as follows:
+
+ 
+
+For each observation 
+N
+i
+, 
+N
+i
+ is passed to all the trees that did not have it in their training. These trees then predict the class of 
+N
+i
+. The final prediction for 
+N
+i
+ is decided by a majority vote.
+
+ 
+
+Now let’s apply this to 
+N
+1
+. Suppose 10 trees did not have 
+N
+1
+ in their training. So these 10 trees make their prediction for 
+N
+1
+. Let’s say four trees predicted 0, and the other six predicted 1 as the output. The final prediction for 
+N
+1
+ will be 1.
+
+ 
+
+Next, we move on to 
+N
+2
+. Suppose 15 trees did not have 
+N
+2
+ in their training. So these 15 trees make their prediction for 
+N
+2
+. Let’s say 12 predicted 0, and the remaining three trees predicted 1 as the ouput. The final prediction for 
+N
+2
+ will be 0.
+
+ 
+
+This is done for each observation in the training set. Once all the predictions for each observation are calculated, the OOB error is calculated as the number of observations predicted wrongly as a proportion of the total number of observation
+
+Only the training set is used while calculating the OOB error, which is why it gives a good idea of model performance on the unseen data without using a test set.
+
+Recall that all the observations of the training set are used to calculate the OOB error.
+
+
+
+Random forests use multiple trees, reduce variance and allow for more exploration of feature combinations. 
+
+The importance of features in random forests, sometimes called ‘Gini importance’ or ‘mean decrease impurity’, is defined as the total decrease in node impurity (it is weighted by the probability of reaching that node (which is approximated by the proportion of samples reaching that node)) averaged over all the trees of the ensemble.
+
+ 
+
+For each variable, the sum of the Gini decreases across every tree of the forest and is accumulated every time that variable is chosen to split a node. The sum is divided by the number of trees in the forest to give an average.
+
+to build a random forest in sklearn. Apart from the hyperparameters that you have in a decision tree, there are two more hyperparameters in random forests: max_features and n_estimators. The effects of both the hyperparameters are briefly summarised below.
+
+ 
+
+The effect of max_features
+
+You learnt that there is an optimal value of max_features, i.e, at very low values, the component trees are too simple to learn about anything useful, while at extremely high values, the component trees become similar to each other (and violate the 'diversity' criterion).
+
+ 
+
+The effect of n_estimators
+
+When you observe the plot of n_estimators and training and test accuracies, you will see that as you increase the value of n_estimators, the accuracies of both the training and test sets gradually increase. More importantly, the model does not overfit even when its complexity is increasing. This is an important benefit of random forests: You can increase the number of trees as much as you like without worrying about overfitting (only if your computational resources allow). 
+
+ 
+
+Also, as you saw, since there were a lot of models to fit, the time taken was quite high. If you want to gain a better understanding of the time taken to build random forests, you can go through this optional segment.
+
+
+

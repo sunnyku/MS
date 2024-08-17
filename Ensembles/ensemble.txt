@@ -1,0 +1,82 @@
+An ensemble refers to a group of things viewed as a whole rather than individually. In an ensemble, a collection of models is used to make predictions, rather than individual models. Arguably, the most popular in the family of ensemble models is the random forest, which is an ensemble made by the combination of a large number of decision trees.
+
+ 
+
+In principle, ensembles can be made by combining all types of models. An ensemble can have a logistic regression, a neural network, and a few decision trees working in unison.
+
+Ensembles of models are somewhat analogous to teams of individual players. If you were to choose a football team, you would take the following two steps:
+
+Choose people with different skill sets, such as defenders, attackers and a goalkeeper, to ensure diversity
+Choose good players, i.e., ensure that all players are acceptable from the point of view of their skill sets (and at least better than a regular person)
+Diversity ensures that the models serve complementary purposes, which means that the individual models make predictions independent of each other.
+
+
+Acceptability implies that each model is at least better than a random model. This is a pretty lenient criterion for each model to be accepted into the ensemble, i.e., it has to be at least better than a random guesser.
+
+There are a number of ways in which you can bring diversity among your models you plan to include in your ensemble.
+
+Use different subsets of training data
+Use different training hyperparameters
+Use different types of classifiers
+Use different features
+ Acceptability means that a model is not making any random guesses, the probability of success of which, i.e., P(success), is 0.50. Thus, we want models for which the probability of success is > 50%.
+ 
+ More the diversity, more diverse will be the results in the ensemble and hence, the ensemble will be equipped to handle and make predictions for a more diverse range of attributes. If the diversity is reduced, the models will give similar results and hence the ensemble performance might not be much better than the individual models.
+ 
+ let’s understand how an ensemble helps in making decisions. Consider an ensemble with 100 models consisting of decision trees, logistic regression models, etc. Given a new data point, each model will predict an output 
+y
+ for this data point. If this is a binary classification, then you simply take the majority score. If more than 50% models say 
+y
+=
+0
+, you go with 0, and vice versa.
+
+in an ensemble overfits, you let it. Chances are extremely low that more than 50% of the models are overfitted. Ensembles ensure that you do not put all your eggs in one basket.
+
+ 
+
+In a binary classification task, an ensemble makes decisions by considering the majority vote. This means that if there are n models in the ensemble and more than half of them give you the right answers, you will make the right decision. On the other hand, if more than half of the models give you the wrong answers, you will make a wrong decision. In the coin toss analogy, making a correct prediction corresponds to heads, whereas making an incorrect prediction corresponds to tails.
+
+It is important to remember that each model in an ensemble is acceptable, i.e., the probability of each model being wrong is less than 0.5 (as a random binary classification model is correct 50% of the time).
+
+Feedback:
+We have assumed that: 1) the models are independent, and 2) they are all individually acceptable. The coin, with heads mapped to success, is biased towards heads. Thus, P(heads > 0.5), and since all models are acceptable, P(success) > 0.5.
+
+Feedback:
+We have assumed that: 1) the models are independent, and 2) they are all individually acceptable. The coin, with heads mapped to success, is biased towards heads. Thus, P(heads > 0.5), and since all models are acceptable, P(success) > 0.5.
+
+We have defined the notion of acceptability in terms of P(success/correct answer) > 0.5. Thus, heads is equivalent to success.
+
+For a model to be acceptable, the probability of it being correct should be more than 0.5 i.e. it should be better than a random guess.
+
+Experimenting with an Ensemble of Three Models
+
+To understand why ensembles work better than individual models, let’s take a simple example of three coins (models). Consider an ensemble of three models: m1, m2 and m3, for a binary classification task (say, 1 or 0). Suppose each of these models has a probability of being correct 70% of the time.
+
+ 
+
+So, each model is acceptable. Given a data point whose class has to be predicted, the ensemble will predict the class using a majority score. In other words, if two or more models predict class = 1 as the output, the ensemble will predict 1, and vice versa.
+
+The difference in probabilities will increase with an increasing number of models, thus improving the overall performance of the ensemble
+
+
+Voting combines the output of different algorithms by taking a vote. In the case of a classification model, if the majority of the classifiers predict a particular class, then the output of the model would be the same class. In the case of a regression problem, the model output is the average of all the predictions made by the individual models. In this way, every classifier/regressor has an equal say in the final prediction.
+
+ 
+
+Another approach to carry out manual ensembling is to pass the outputs of the individual models to a level-2 classifier/regressor as derived meta features, which will decide what weights should be given to each of the model outputs in the final prediction. In this way, the outputs of the individual models are combined with different weightages in the final prediction. This is the high-level approach behind stacking and blending.
+
+
+Boosting is one of the most popular approaches to ensembling. It can be used with any technique and combines the weak learners into strong learners by creating sequential models such that the final model has higher accuracy than the individual models. You saw the example shown below to see intuitively how adaptive boosting works.
+
+Bagging creates different training subsets from the sample training data with replacement, and an algorithm with the same set of hyperparameters is built on these different subsets of data. In this way, the same algorithm with a similar set of hyperparameters is exposed to different parts of data, resulting in a slight difference between the individual models. The predictions of these individual models are combined by taking the average of all the values for regression or a majority vote for a classification problem.
+
+ 
+
+Bagging works well with high variance algorithms and is easy to parallelise. By high variance, we mean algorithms which change a lot with slight changes in the data as a result of which these algorithms very easily overfit if not controlled. If you recall, decision trees are very prone to overfitting if we don't tune the hyperparameters well. Hence, bagging works very well for high-variance models like decision trees.
+
+ 
+
+However,  it has got some disadvantages as well. In this approach, you cannot really see the individual trees one by one and figure out what is going on behind the ensemble as it is a combination of n number of trees working together. This leads to a loss of interpretability. Also, it does not work well when any of the features dominate because of which all the trees look similar and hence the property of diversity in ensembles is lost. Sometimes bagging can be computationally expensive and is applied depending on the case.
+
+ 

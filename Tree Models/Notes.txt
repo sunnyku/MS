@@ -1,0 +1,423 @@
+You will first learn about decision trees and then proceed to learn about random forests, which are a collection of multiple decision trees. A collection of multiple models is called an ensembler.
+
+Random forests are collections of multiple trees and are considered to be one of the most efficient machine learning models.
+
+Linear models cannot handle collinearity and non linear relationships in the data well. Now here comes the role of decison trees which leverages these properties.
+
+A decision tree, as the term suggests, uses a tree-like model to make predictions. It resembles an upside-down tree and uses a similar process that you do to make decisions in real life, i.e., by asking a series of questions to arrive at a decision.
+
+ 
+
+A decision tree splits data into multiple sets of data. Each of these sets is then further split into subsets to arrive at a decision. 
+
+
+decision tree uses a natural decision-making process, i.e., it asks a series of questions in a nested if-then-else structure. On each node, you ask a question to further split the data that is held by the node. If the test passes, you move to the left; otherwise, you move to the right.
+
+
+The first and top node of a decision tree is called the root node. The arrows in a decision tree always point away from this node.
+
+
+The node that cannot be further classified or split is called the leaf node. The arrows in a decision tree always point towards this node.
+
+ 
+
+Any node that contains descendant nodes and is not a leaf node is called the internal node.
+
+
+In a decision tree, you start from the top (root node) and traverse left/right according to the result of the condition. Each new condition adds to the previous condition with a logical ‘and’, and you may continue to traverse further until you reach the final condition’s leaf node. A decision is the value (class/quantity) that is assigned to the leaf node.
+
+Constructing a decision tree involves the following steps:
+
+1. Recursive binary splitting/partitioning the data into smaller subsets
+2. Selecting the best rule from a variable/ attribute for the split
+3. Applying the split based on the rules obtained from the attributes
+4. Repeating the process for the subsets obtained
+5. Continuing the process until the stopping criterion is reached
+6. Assigning the majority class/average value as the prediction
+
+ the decision tree building process is a top-down approach. The top-down approach refers to the process of starting from the top with the whole data and gradually splitting the data into smaller subsets. 
+
+ 
+
+The reason we call the process greedy is because it does not take into account what will happen in the next two or three steps. The entire structure of the tree changes with small variations in the input data. This, in turn, changes the way you split and the final decisions altogether. This means that the process is not holistic in nature, as it only aims to gain an immediate result that is derived after splitting the data at a particular node based on a certain rule of the attribute.
+
+
+The order of attributes in each side of the decision tree does not matter in the process of decision making.
+
+
+Hyperparameters are simply the parameters that we pass on to the learning algorithm to control the training of the model. Hyperparameters are choices that the algorithm designer makes to ‘tune’ the behaviour of the learning algorithm. The choice of hyperparameters, therefore, has a lot of bearing on the final model produced by the learning algorithm.  
+
+ 
+
+So basically anything that is passed on to the algorithm before it begins its training or learning process is a hyperparameter
+
+
+Let’s summarise the advantages of tree models one by one in the following order:
+
+Predictions made by a decision tree are easily interpretable.
+A decision tree is versatile in nature. It does not assume anything specific about the nature of the attributes in a data set. It can seamlessly handle all kinds of data such as numeric, categorical, strings, Boolean, etc.
+A decision tree is scale-invariant. It does not require normalisation, as it only has to compare the values within an attribute, and it handles multicollinearity better.
+Decision trees often give us an idea of the relative importance of the explanatory attributes that are used for prediction.
+They are highly efficient and fast algorithms.
+They can identify complex relationships and work well in certain cases where you cannot fit a single linear relationship between the target and feature variables. This is where regression with decision trees comes into the picture.
+
+
+In regression problems, a decision tree splits the data into multiple subsets. The difference between decision tree classification and decision tree regression is that in regression, each leaf represents the average of all the values as the prediction as opposed to a class label in classification trees. For classification problems, the prediction is assigned to a leaf node using majority voting but for regression, it is done by taking the average value. This average is calculated using the following formula:
+
+ 
+
+^
+y
+t
+=
+1
+N
+t
+∑
+i
+ϵ
+D
+t
+y
+(
+i
+)
+, where 
+y
+i
+’s represent the observations in a node.
+
+
+Leaves in classification contain labels.
+Leaves in regression contain the average predicted value.
+
+It is difficult to represent non linear data via a single model; hence, linear regression model cannot be applied in such a case.
+
+✓ Correct
+Feedback:
+Decision tree regression is performed because the entire data set cannot be represented by a single linear regression model.
+
+
+Decision trees do not require any data preparation.
+
+✓ Correct
+You missed this!
+Feedback:
+In decision trees, you do not have to treat missing values, outliers and multicollinearity before proceeding with model building.
+
+All labels are identical in the left half. Similarly, all labels belong to the same class in the right half of line 1. All the points are correctly classified in option A, while option B has a lot of misclassified points.
+
+If a partition contains data points with identical labels (for example, label 1), then you can classify the entire partition as that particular label (label 1). However, this is an oversimplified example. In real-world data sets, you will almost never have completely homogenous data sets (or even nodes) after splitting the data. Hence, it is important that you try to split the nodes such that the resulting nodes are as homogenous as possible. One important thing to remember is that homogeneity here is always referred to response (target) variable's homogeneity.
+
+A split that results in a homogenous subset is much more desirable than the one that results in a 50-50 distribution (in the case of two labels). In a completely homogenous set, all the data points belong to one particular label. Hence, you must try to generate partitions that result in such sets.
+
+ 
+
+For classification purposes, a data set is completely homogeneous if it contains only a single class label. For regression purposes, a data set is completely homogeneous if its variance is as small as possible. You will understand regression trees better in the upcoming segments.
+
+ A tree can be split based on different rules of an attribute and these attributes can be categorical or continuous in nature. If an attribute is nominal categorical, then there are 
+2
+k
+−
+1
+−
+1
+ possible splits for this attribute, where 
+k
+ is the number of classes. In this case, each possible subset of categories is examined to determine the best split.
+
+ 
+
+If an attribute is ordinal categorical or continuous in nature with n different values, there are n - 1 different possible splits for it. Each value of the attribute is sorted from the smallest to the largest and candidate splits based on the individual values is examined to determine the best split point which maximizes the homogeneity at a node.
+
+ 
+
+There are various other techniques like calculating percentiles and midpoints of the sorted values for handling continuous features in different algorithms and this process is known as discretization. Although the exact technicalities are out of the scope of this module, curious students can read more about this in detail from the additional resources given below.
+
+More homogeneity will mean that most of the data points in the set belong to the same class label. Hence, classifying all the data points of that set, to get them to belong to that class, will result in fewer errors.
+
+Out of all the attributes, the attribute that results in the maximum increase in homogeneity is chosen for splitting.
+
+'Gender' will split the data such that one node will contain 98% of total observations that belong to 'product purchased' class and the other node will contain 2% of total observations belonging to 'product purchased' class. So, nodes will have high homogeneity here.
+
+The change in impurity or the purity gain is given by the difference of impurity post-split from impurity pre-split
+Δ Impurity = Impurity (pre-split) – Impurity (post-split)
+
+
+The post-split impurity is calculated by finding the weighted average of two child nodes. The split that results in maximum gain is chosen as the best split.
+
+In case of a classification problem, you always try to maximise purity gain or reduce the impurity at a node after every split and this process is repeated till you reach the leaf node for the final prediction. 
+
+Various methods, such as the classification error, Gini index and entropy, can be used to quantify homogeneity
+
+The scaled version of the entropy in the illustration shown in the video is nothing but entropy/2. It has been used to emphasize that the Gini index is an intermediate measure between entropy and the classification error.
+Gini index is the degree of a randomly chosen datapoint being classified incorrectly. The formula for Gini index can also be written as follows:
+
+ 
+
+G
+=
+∑
+k
+i
+=
+1
+p
+i
+(
+1
+−
+p
+i
+)
+=
+∑
+k
+i
+=
+1
+(
+p
+i
+−
+p
+2
+i
+)
+=
+∑
+k
+i
+=
+1
+p
+i
+−
+∑
+k
+i
+=
+1
+p
+2
+i
+=
+1
+−
+∑
+k
+i
+=
+1
+p
+2
+i
+
+ 
+
+where 
+p
+i
+ is the probability of finding a point with the label 
+i
+, and 
+k
+ is the number of classes.
+
+ 
+
+(Think why was 
+∑
+k
+i
+=
+1
+p
+i
+ equal to 1?)
+
+ 
+
+Gini index of 0 indicates that all the data points belong to a single class. Gini index of 0.5 indicates that the data points are equally distributed among the different classes.
+
+
+. The Gini index, which is equal to 0, will be the lowest in such a case. Hence, the higher the homogeneity, the lower the Gini index.
+
+ 
+Entropy quantifies the degree of disorder in the given data, its value varies from 0 to 1. Entropy and the Gini index are similar numerically. If a data set is completely homogenous, then the entropy of such a data set will be 0, i.e., there is no disorder in the data. If a data set contains an equal distribution of both the classes, then the entropy of that data set will be 1, i.e., there is complete disorder in the data. Hence, like the Gini index, the higher the homogeneity, the lower the entropy.
+
+ When the data set is non-homogeneous, the Gini index, which is a measure of misclassification of the data points will be maximum. The Gini index is minimum when all the points in the data set belong to one class label. It is given by 
+1-∑
+k
+i
+=
+1
+p
+i
+2
+.
+The information gain is equal to the entropy change from the parent set to the partitions. So it is maximum when the entropy of the parent set minus the entropy of the partitions is maximum.
+
+A high value of entropy and gini index implies that the data is non-homogeneous and further splitting is required to make it as homogeneous as possible.
+You split on the attribute that maximises the information gain. The information gain on attribute 'B' is greater than the information gain on attribute 'A'.
+
+
+Let's summarise all the steps you performed.
+
+Calculate the Gini impurity before any split on the whole dataset.
+Consider any one of the available attributes.
+Calculate the Gini impurity after splitting on this attribute for each of the levels of the attribute. In the example above, we considered the attribute 'Sex' and then calculated the Gini impurity for both males and females separately.
+Combine the Gini impurities of all the levels to get the Gini impurity of the overall attribute.
+Repeat steps 2-5 with another attribute till you have exhausted all of them.
+Compare the decrease in Gini impurity across all attributes and select the one which offers maximum reduction.
+Important: Please note that Gini index is also often referred to as Gini impurity. Also, some sources/websites/books might have mentioned a different formula for the Gini index. There is nothing wrong in using either of the formulas (because the ultimate interpretation regarding the impurity of the feature remains unchanged across both the formulas), but in order to avoid any confusion, we would recommend you to stick to the one mentioned in this session as this is the formula that we will be consistently using throughout the whole module. Here's it again for you!
+
+The gini impurity for 'ratings' feature comes out to be 0.39 after the split which is lower than the impurity value(0.40) obtained after splitting based on 'renowned cast'. Hence, purity gain for splitting based on ratings is more than that of renowned cast and we will split the data set on ratings first.
+Use formula Gini Index(stream) = (fraction of total observations in science node)*Gini index of science node + (fraction of total observations in arts node)*Gini index of arts node.
+
+Gini Index(stream) = 0.8*0.375+0.2*0=0.30‘Stream’ is a better attribute to split on as it yields a higher reduction in Gini impurity as compared to ‘Gender’. This means that Stream gives a better split that helps distinguish between those who are interested in music and those who are not.
+
+Feature importance plays a key role in contributing towards effective prediction, decision-making and model performance. It eliminates the less important variables from a large data set and helps in identifying the key features that can lead to better prediction results.
+
+
+Decision trees help in quantifying the importance of each feature by calculating the reduction in the impurity for each feature at a node. The feature that results in a significant reduction in the impurity is the important variable, and the one that results in less impurity reduction is the less important variable.
+ A decision tree first decides on an attribute to split on.
+To select this attribute, it measures the homogeneity of the nodes before and after the split.
+You can measure homogeneity in various ways with metrics like Gini index and entropy.
+The attribute that results in the increase of homogeneity the most is then selected for splitting.
+Then, this whole cycle is repeated until you obtain a sufficiently homogeneous data set.
+
+
+The following is a summary of the disadvantages of decision trees:
+
+They tend to overfit the data. If allowed to grow with no check on its complexity, a decision tree will keep splitting until it has correctly classified (or rather, mugged up) all the data points in the training set.
+They tend to be quite unstable, which is an implication of overfitting. A few changes in the data can considerably change a tree.
+
+There are two broad strategies to control overfitting in decision trees: truncation and pruning.
+
+There are two ways to control overfitting in trees:
+
+Truncation - Stop the tree while it is still growing so that it may not end up with leaves containing very few data points. Note that truncation is also known as pre-pruning.
+
+Pruning - Let the tree grow to any complexity. Then, cut the branches of the tree in a bottom-up fashion, starting from the leaves. It is more common to use pruning strategies to avoid overfitting in practical implementations.
+
+
+Though there are various ways to truncate or prune trees, the DecisionTreeClassifier() function in sklearn provides the following hyperparameters which you can control:
+
+criterion (Gini/IG or entropy): It defines the homogeneity metric to measure the quality of a split. Sklearn supports “Gini” criteria for Gini Index & “entropy” for Information Gain. By default, it takes the value of “Gini”.
+max_features: It defines the no. of features to consider when looking for the best split. We can input integer, float, string & None value.
+If an integer is inputted then it considers that value as max features at each split.
+If float value is taken then it shows the percentage of features at each split.
+If “auto” or “sqrt” is taken then max_features=sqrt(n_features).
+If “log2” is taken then max_features= log2(n_features).
+If None, then max_features=n_features. By default, it takes “None” value.
+max_depth: The max_depth parameter denotes the maximum depth of the tree. It can take any integer value or None. If None, then nodes are expanded until all leaves contain just one data point (leading to overfitting) or until all leaves contain less than "min_samples_split" samples. By default, it takes “None” value.
+min_samples_split: This tells about the minimum no. of samples required to split an internal node. If an integer value is taken then consider min_samples_split as the minimum no. If float, then min_samples_split is a fraction and ceil(min_samples_split * n_samples) are the minimum number of samples for each split. By default, it takes the value "2".
+min_samples_leaf: The minimum number of samples required to be at a leaf node. If an integer value is taken then consider min_samples_leaf as the minimum no. If float, then it shows the percentage. By default, it takes the value "1".
+ 
+
+There are other hyperparameters as well in DecisionTreeClassifier. You can read the documentation in python using: 
+
+ 
+
+help(DecisionTreeClassifier)
+
+Truncation lets you split the data only when the number of data points in the node is greater than or equal to the 'minsplit'.
+
+The min_samples_split specifies the minimum number of data points a node should have for it to be considered for splitting.
+
+ 
+ 
+ 
+ The minimum number of samples required to be at a leaf node. If an integer value is taken then consider - -min_samples_leaf as the minimum no. If float, then it shows percentage. By default, it takes “1” value.
+ 
+ 
+ Feedback:
+The number of data points in one of the leaves is 2, which violates the condition that the number of data points in a leaf should be at least 3 (as specified by the min_samples_leaf).
+
+So far, you have learnt how to tune different hyperparameters manually. However, you cannot always choose the best set of hyperparameters for the model manually. Instead, you can use gridsearchcv() in Python, which uses the cross-validation technique.
+
+the problems with manual hyperparameter tuning are as follows:
+
+Split into train and test sets: Tuning a hyperparameter makes the model 'see' the test data. Also, the results are dependent upon the specific train-test split.
+Split into train, validation and test sets: The validation data would eat into the training set.
+However, in the cross-validation technique, you split the data into train and test sets and train multiple models by sampling the train set. Finally, you can use the test set to test the hyperparameter once.
+
+ 
+
+Specifically, you can apply the k-fold cross-validation technique, where you can divide the training data into k-folds/groups of samples. If k = 5, you can use k-1 folds to build the model and test it on the kth fold. 
+
+ 
+
+It is important to remember that k-fold cross-validation is only applied on the train data. The test data is used for the final evaluation. One extra step that we perform in order to execute cross-validation is that we divide the train data itself into train and test (or validation) data and keep changing it across "k" no. of folds so that the model is more generalised. 
+
+Yes, as mentioned in the documentation, min_samples_split is the minimum number of data points required in a node to be considered for further splitting.
+
+Correct - min_samples_leaf is the minimum number of samples required in a (resulting) leaf for the split to happen. Thus, if you specify a high value of min_samples_leaf, the tree will be forced to stop splitting quite early.
+
+Yes, if the min_sample_leaf is set to 1 the tree will overfit the data as the number of the samples required at the leaf node can be 1.
+min_sample_split tells above the minimum no. of samples reqd. to split an internal node. If an integer value is taken then consider min_samples_split as the minimum no. If float, then it shows percentage. By default, it takes the value “2”.
+
+min_sample_leaf is the minimum number of samples required to be at a leaf node. If an integer value is taken then consider - -min_samples_leaf as the minimum no. If float, then it shows percentage. By default, it takes the value “1”.
+
+As you can see, the accuracy on the train set is high and on the test set is low indicating that the model has overfitted.
+
+Feedback:
+A low value of the min_samples_split will lead to a small number of data points in the nodes. This means that it is very likely that each leaf (obtained after splitting) is going to represent very few (or only one, in some cases) data points. So, you increase the min_samples_split.
+
+Decreasing max_depth will stop the tree to grow deeper, in that way your tree will not overfit the data and you will have a decent accuracy in both test and train.
+
+Since the node should now contain at least 10 data points before splitting, as opposed to 1, all the branches — where the nodes had less than 10 data points — will be chopped off, leading to a decrease in the tree depth.
+
+
+The regression tree building process can be summarised as follows:
+
+Calculate the MSE of the target variable.
+Split the data set based on different rules obtained from the attributes and calculate the MSE for each of these nodes.
+The resulting MSE is subtracted from the MSE before the split. This result is called the MSE reduction.
+The attribute with the largest MSE reduction is chosen for the decision node.
+The dataset is divided based on the values of the selected attribute. This process is run recursively on the non-leaf branches, until you get significantly low MSE and the node becomes as homogeneous as possible.
+Finally, when no further splitting is required, assign this as the leaf node and calculate the average as the final prediction when the number of instances is more than one at a leaf node.
+So, you need to split the data such that the weighted MSE of the partitions obtained after splitting is lower than that obtained with the original or parent data set. In other words, the fit of the model should be as ‘good’ as possible after splitting. As you can see, the process is surprisingly similar to what you did for classification using trees.
+
+The lower the MSE, the better the regression model.
+
+The MSE is used to measure the homogeneity in regression where the target variable is continuous.
+A decision tree splits a data set on the attribute that results in the maximum increase in homogeneity.
+
+The MSE is a measure of the average squared differences between the estimated values and the actual value.
+Each leaf in regression contains an average value that is used for prediction.
+
+If the MSE is low enough, then the data is not split further.
+
+Let’s learn about the steps involved in decision tree construction. Arrange the following steps in the order of their occurrence: 
+
+Now that the MSE is sufficiently low, stop splitting.
+You have a data set, D with categorical and numerical attributes as well as continuous target variables. So, it is a regression problem. Hence, you apply decision tree regression to it.
+Split the original data set, D, on the selected attribute.
+After selecting the homogeneity measure, you need to decide the first attribute on which you will split the original data set, D.
+Keep splitting the subsequent data sets until you obtain a sufficiently low MSE.
+Select a homogeneity measure for splitting. Since it is regression, let’s choose MSE.
+Each leaf will now represent a linear regression model.
+Split ‘D’ on all the attributes one by one, and select the attribute that results in the maximum increase in homogeneity after splitting.
+ 
+￼
+6, 2, 8, 1, 7, 4, 3, 5
+
+￼
+2, 6, 4, 8, 3, 5, 1, 7
+
+✓ Correct
+Feedback:
+First, decide if it is a classification problem or a regression problem. Then, select a homogeneity measure for splitting accordingly; of the many attributes, select the first attribute for splitting. After this, split the original data set on the selected attribute, and keep splitting until you obtain a sufficiently low MSE. Once you stop splitting, you will get leaves containing linear regression models.
+
+You learnt that decision trees are prone to overfitting. There are two ways to avoid overfitting: truncation and pruning.
+
+ 
+
+In truncation, you let the tree grow only to a certain size, while in pruning, you let the tree grow to its logical end and then you chop off the branches that do not increase the accuracy on the validation set.
+
+ 
+
+There are various hyperparameters in the DecisionTreeClassifier that let you truncate the tree, such as minsplit, max_depth, etc.
+You also learnt about the effect of various hyperparameters on the decision tree construction. 
